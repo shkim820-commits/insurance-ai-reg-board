@@ -238,7 +238,7 @@ function hit(i){
   if(F.jur&&i.jur!==F.jur)return false;
   if(F.use&&!i.uses.includes(F.use))return false;
   if(F.st&&i.status!==F.st)return false;
-  if(F.q){const s=[i.name,i.org,i.what,i.change,i.kind].join(' ').toLowerCase();
+  if(F.q){const s=[i.name,i.org,i.what,i.change,i.next,i.kind,i.bind,i.jur,i.uses.join(' ')].join(' ').toLowerCase();
     if(!F.q.toLowerCase().split(/\s+/).every(w=>s.includes(w)))return false;}
   return true;
 }

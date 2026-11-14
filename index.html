@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>보험 AI 규제 보드</title>
+<meta name="description" content="보험사가 AI를 인수심사·보험료 산정·보험금 지급·보험사기 탐지·상담에 쓸 때 챙겨야 할 국내외 규제를 업무별로 정리한 보드입니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="보험 AI 규제 보드">
+<meta property="og:description" content="보험사가 챙겨야 할 국내외 AI 규제 17개 항목을 업무별·관할별로 정리했습니다.">
+<style>
+:root{--ink:#171C61;--acc:#00A0E9;--bg:#F4F6FA;--card:#fff;--line:#D5DCE8;--mut:#5B6475;--txt:#1f2430;--chip:#EEF3FA;
+  --new:#0E8A5F;--newBg:#E3F6EE;--draft:#B7791F;--draftBg:#FFF4DE;--keep:#5B6475;--keepBg:#EEF1F6;--due:#C0392B;--dueBg:#FDECEA}
+@media (prefers-color-scheme:dark){:root{--ink:#A9BBFF;--acc:#3FC1F5;--bg:#0F1324;--card:#171C33;--line:#2C3556;--mut:#9AA3BC;--txt:#E6E9F2;--chip:#222A47;
+  --newBg:#123A2D;--new:#5FD3A4;--draftBg:#3A2E12;--draft:#F2C46B;--keepBg:#232A42;--keep:#A9B1C7;--dueBg:#3D1C1A;--due:#FF8C80}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:'Malgun Gothic','Noto Sans KR',sans-serif;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+header{padding:30px 0 10px}
+header small{color:var(--acc);font-weight:bold;letter-spacing:2px;font-size:12px}
+header h1{margin:4px 0 6px;font-size:28px;color:var(--ink)}
+header p{margin:0;color:var(--mut);font-size:14px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 4px;font-size:12.5px;color:var(--mut)}
+.legend b{color:var(--txt)}
+.st{display:inline-block;font-size:11.5px;font-weight:bold;padding:1px 7px;border-radius:3px;white-space:nowrap}
+.st.new{background:var(--newBg);color:var(--new)}.st.draft{background:var(--draftBg);color:var(--draft)}.st.keep{background:var(--keepBg);color:var(--keep)}
+.tier{display:inline-block;font-size:11px;font-weight:bold;border:1px solid var(--line);padding:0 5px;border-radius:3px;color:var(--mut)}
+.tier.T1{border-color:var(--acc);color:var(--acc)}.tier.T3{border-color:var(--due);color:var(--due)}
+section{margin:26px 0}
+h2{font-size:17px;color:var(--ink);margin:0 0 10px;display:flex;align-items:baseline;gap:10px}
+h2 small{font-size:12.5px;color:var(--mut);font-weight:normal}
+.box{background:var(--card);border:1px solid var(--line);padding:14px 16px}
+/* 다가오는 일정 */
+.tl{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.tl div{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--acc);padding:10px 12px;font-size:13px}
+.tl div.soon{border-top-color:var(--due)}
+.tl b{display:block;font-size:15px;color:var(--ink)}
+.tl span{color:var(--mut);font-size:12px}
+/* 업무별 매트릭스 */
+.mx{width:100%;border-collapse:collapse;font-size:13px;background:var(--card)}
+.mx th,.mx td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+.mx thead th{background:var(--ink);color:#fff;font-size:12.5px}
+@media (prefers-color-scheme:dark){.mx thead th{color:#0F1324}}
+.mx tbody th{background:var(--chip);white-space:nowrap;color:var(--ink)}
+.mx td a{display:block;color:var(--txt);text-decoration:none;cursor:pointer;margin-bottom:3px}
+.mx td a:hover{color:var(--acc)}
+.mx td a::before{content:"· ";color:var(--acc)}
+.scroll{overflow-x:auto}
+/* 필터 + 카드 */
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.bar input{flex:1;min-width:180px;padding:9px 11px;border:1.5px solid var(--line);background:var(--card);color:var(--txt);font:inherit;font-size:14px}
+.fl{display:flex;flex-wrap:wrap;gap:5px}
+.fl button{border:0;background:var(--chip);color:var(--txt);padding:5px 10px;font:inherit;font-size:12.5px;cursor:pointer;border-radius:3px}
+.fl button.on{background:var(--ink);color:var(--card)}
+.grp{font-size:13px;font-weight:bold;color:var(--ink);margin:22px 0 8px;padding-bottom:4px;border-bottom:2px solid var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+.c{background:var(--card);border:1px solid var(--line);padding:13px 15px;scroll-margin-top:20px}
+.c.hl{outline:3px solid var(--acc)}
+.c .top{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--mut)}
+.c .kind{background:var(--chip);padding:1px 6px;border-radius:3px}
+.c .bind{margin-left:auto;font-weight:bold}
+.c .bind.law{color:var(--due)}
+.c h3{font-size:15.5px;margin:7px 0 2px;line-height:1.4}
+.c .org{font-size:12.5px;color:var(--mut)}
+.c .ins{margin:8px 0 6px;display:flex;flex-wrap:wrap;gap:4px}
+.c .ins span{font-size:11.5px;border:1px solid var(--acc);color:var(--acc);padding:0 6px;border-radius:3px}
+.c p{margin:6px 0;font-size:13.5px}
+.c .chg{font-size:12.5px;background:var(--chip);padding:6px 8px;margin-top:8px}
+.c .nx{font-size:12.5px;color:var(--due);margin-top:5px}
+.c .src{font-size:12px;margin-top:8px;display:flex;gap:8px;align-items:center}
+.c .src a{color:var(--acc);text-decoration:none;font-weight:bold}
+footer{color:var(--mut);font-size:12px;padding:20px 0 50px;border-top:1px solid var(--line);margin-top:30px}
+@media (max-width:640px){.wrap{padding:0 16px}.cards{grid-template-columns:1fr}header h1{font-size:23px}}
+</style></head><body>
+<div class="wrap">
+<header>
+  <small>INSIGHT SOLUTION · INSURANCE AI REGULATION</small>
+  <h1>보험 AI 규제 보드</h1>
+  <p>보험사가 AI를 인수심사·보험료 산정·보험금 지급·보험사기 탐지·상담에 쓸 때 챙겨야 할 국내외 규제를 한곳에 모았습니다.
+     기준일 <b id="asof"></b> · 항목 <b id="cnt"></b>개</p>
+  <div class="legend">
+    <span><span class="st new">갱신/신규</span> 최근 60일 안에 공표·개정·시행</span>
+    <span><span class="st draft">초안/예정</span> 확정·시행 전 단계</span>
+    <span><span class="st keep">유지</span> 확인된 변동 없음</span>
+    <span><span class="tier T1">T1</span> 원문·공식 <span class="tier">T2</span> 공신력 2차(로펌·언론) <span class="tier T3">T3</span> 재확인 필요</span>
+  </div>
+</header>
+
+<section><h2>다가오는 일정 <small>보험사 대응이 필요한 날짜</small></h2><div class="tl" id="tl"></div></section>
+
+<section><h2>업무별로 보기 <small>항목을 누르면 아래 상세 카드로 이동합니다</small></h2>
+  <div class="scroll"><table class="mx" id="mx"></table></div></section>
+
+<section><h2>전체 항목</h2>
+  <div class="bar"><input id="q" type="search" placeholder="규제명·기관·키워드 검색"></div>
+  <div class="bar"><div class="fl" id="fJur"></div></div>
+  <div class="bar"><div class="fl" id="fUse"></div></div>
+  <div class="bar"><div class="fl" id="fSt"></div></div>
+  <div id="list"></div>
+</section>
+
+<footer>이 보드는 공개된 법령·감독기관 발표·로펌 해설을 바탕으로 정리했으며 법률 자문이 아닙니다. 각 항목의 출처 링크에서 원문을 확인하세요.<br>매주 갱신하며, 바뀐 항목은 기준일과 함께 <b>갱신/신규</b>로 표시합니다. · 인사이트솔루션</footer>
+</div>
+<script>
+const ASOF='2026-11-15';
+const USES=['인수심사','보험료 산정','보험금 지급','보험사기 탐지','상담·판매','전사 거버넌스'];
+const JURS=['🇰🇷 AI 기본법','🇰🇷 금융당국','🇰🇷 정보보호','🇪🇺 EU','🇺🇸 미국','🌐 국제'];
+// status: new | draft | keep · bind: 법적 의무 | 감독 기대 | 자율 규범
+const ITEMS=[
+{id:'kr-aiact',jur:'🇰🇷 AI 기본법',kind:'법률',bind:'법적 의무',name:'AI 기본법 (인공지능 발전과 신뢰 기반 조성 등에 관한 기본법)',org:'과학기술정보통신부',
+ uses:['인수심사','보험금 지급','상담·판매','전사 거버넌스'],status:'keep',tier:'T1',
+ what:'권리·의무에 중대한 영향을 주는 판단(법 조문 예시: 채용·대출 심사)에 쓰는 AI는 고영향 AI로 보고 위험관리·설명·사람의 관리감독 의무를 지운다. 생성형 AI 결과물은 이용자에게 알려야 한다.',
+ change:'2026-01-22 시행. 정부는 과태료 부과를 최소 1년 유예(계도기간)하겠다고 밝혔다.',
+ next:'계도기간 종료 시점(2027년 초 예상)과 연장 여부 확인 필요',
+ url:'https://www.law.go.kr/법령/인공지능발전과신뢰기반조성등에관한기본법'},
+{id:'kr-highimpact',jur:'🇰🇷 AI 기본법',kind:'시행령·가이드라인',bind:'법적 의무',name:'고영향 AI 판단 기준 (시행령 · 확인 절차)',org:'과학기술정보통신부',
+ uses:['인수심사','보험료 산정','보험금 지급'],status:'keep',tier:'T1',
+ what:'사용 영역, 기본권 영향, 중대성, 빈도를 종합해 고영향 여부를 판단한다. 사업자는 과기정통부에 확인을 요청할 수 있다(기본 30일, 1회 연장).',
+ change:'보험 인수심사가 고영향 AI에 해당하는지는 법 조문에 명시되지 않아 업계가 범위 명확화를 요구하고 있다.',
+ next:'보험 인수·보험금 심사 AI의 고영향 해당 여부 해석 확인',
+ url:'https://www.korea.kr/news/policyNewsView.do?newsId=148954629'},
+{id:'kr-transparency',jur:'🇰🇷 AI 기본법',kind:'가이드라인',bind:'법적 의무',name:'인공지능 투명성 확보 안내 지침',org:'과학기술정보통신부',
+ uses:['상담·판매','전사 거버넌스'],status:'keep',tier:'T1',
+ what:'AI 기본법 제31조 투명성 확보 의무를 어떻게 이행할지 정리했다. 고영향 또는 생성형 AI를 쓰는 서비스라는 사실을 이용자에게 미리 알리고, 생성 결과물에는 표시를 해야 한다. 의무 주체는 이용자에게 AI 제품·서비스를 직접 제공하는 사업자이며, 국내 이용자를 상대하는 해외 사업자도 포함된다.',
+ change:'2026-01-22 공개. 안전성 확보·고영향 판단·고영향 사업자 책무·영향평가 가이드라인과 함께 나왔다. 1년 이상 계도기간 동안 투명성 조항에 대한 사실조사와 과태료 부과가 유예된다.',
+ next:'계도기간 종료 후 표시 의무 집행 시점',
+ url:'https://eiec.kdi.re.kr/policy/materialView.do?num=276195'},
+{id:'kr-fsc-guide',jur:'🇰🇷 금융당국',kind:'가이드라인',bind:'감독 기대',name:'금융분야 인공지능 가이드라인 (개정)',org:'금융위원회',
+ uses:['인수심사','보험료 산정','보험금 지급','보험사기 탐지','상담·판매','전사 거버넌스'],status:'keep',tier:'T1',
+ what:'거버넌스·합법성·보조수단성·신뢰성·금융안정성·신의성실·보안성 7대 원칙. AI를 쓰는 모든 금융회사와, 결과가 금융거래에 영향을 주는 비금융회사가 대상이다. 경영진이 AI 책임을 진다.',
+ change:'2026-06-18 발표, 2026-06-22 시행. 2021 운영 가이드라인·2022 개발·활용 안내서·2023 보안 가이드라인을 하나로 통합했다.',
+ next:'',url:'https://www.fsc.go.kr/no010101/87142'},
+{id:'kr-fss-rmf',jur:'🇰🇷 금융당국',kind:'감독 기준',bind:'감독 기대',name:'금융분야 AI 위험관리 프레임워크(AI RMF)',org:'금융감독원',
+ uses:['인수심사','보험금 지급','보험사기 탐지','전사 거버넌스'],status:'keep',tier:'T2',
+ what:'거버넌스·위험평가·위험통제 3단계. 고위험 AI 업무에는 사람의 개입과 독립 검증을 요구한다. 법적 구속력은 없지만 검사 때 내부통제 판단 기준이 될 전망이다.',
+ change:'2026-06 가이드라인과 함께 배포. 보험사기 탐지 AI의 소비자 차별 가능성을 위험 요소로 명시했다.',
+ next:'',url:'https://www.insnews.co.kr/news/articleView.html?idxno=92923'},
+{id:'kr-fss-review',jur:'🇰🇷 금융당국',kind:'감독 점검',bind:'감독 기대',name:'보험사 AI 활용 실태 점검',org:'금융감독원',
+ uses:['인수심사','보험료 산정','보험금 지급','보험사기 탐지','상담·판매'],status:'draft',tier:'T2',
+ what:'정보 제공·상품 설계·인수심사·보험금 지급·보험료 산정·AI 상담 등 판매 전 과정의 AI 활용 현황 자료 제출을 요구했다.',
+ change:'2026-07 자료 요청 보도. AI가 보험금 추가심사를 결정할 때 설명·이의제기 절차가 부족하다는 지적이 나왔다.',
+ next:'점검 결과와 후속 가이드라인 보완 여부',url:'https://www.etnews.com/20260708000125'},
+{id:'kr-network',jur:'🇰🇷 금융당국',kind:'규정 개정',bind:'법적 의무',name:'망분리 규제 개선 (전자금융감독규정·시행세칙)',org:'금융위원회 · 금융감독원',
+ uses:['전사 거버넌스','상담·판매'],status:'new',tier:'T1',
+ what:'내부 업무망에서 클라우드 SaaS를 보안 조건 아래 쓸 수 있게 망분리 예외를 허용했다. 생성형 AI 서비스도 예외에 넣는 방안을 추진 중이다.',
+ change:'SaaS 예외 2026-04-20 시행. 비조치의견서로 풀어 둔 생성형 AI·보안 목적 AI 예외를 전자금융감독규정 조문으로 상시화하는 개정안이 2026-11 중 규정변경예고될 예정이라고 보도됐다(공고문은 아직 확인되지 않았다). 금융위는 망분리 전면 해제를 논의할 TF를 2026-11 가동했다.',
+ next:'규정변경예고 공고 확인 · AI 기반 신 보안체계(2027년 1분기 목표)',
+ url:'https://www.fsc.go.kr/no010101/86745'},
+{id:'kr-pipa',jur:'🇰🇷 정보보호',kind:'법률',bind:'법적 의무',name:'개인정보보호법 제37조의2 (자동화된 결정에 대한 권리)',org:'개인정보보호위원회',
+ uses:['인수심사','보험금 지급','보험사기 탐지'],status:'keep',tier:'T1',
+ what:'사람 개입 없이 AI로만 내린 결정이 권리·의무에 중대한 영향을 주면 정보주체가 거부하거나 설명을 요구할 수 있다. 자동 인수거절·자동 지급거절이 대표 사례다.',
+ change:'2024-03-15 시행.',next:'',
+ url:'https://www.law.go.kr/법령/개인정보보호법'},
+{id:'kr-pipa-ai',jur:'🇰🇷 정보보호',kind:'법률 개정',bind:'법적 의무',name:'개인정보보호법 제28조의12~제28조의15 (AI 개발 목적 이용 특례)',org:'개인정보보호위원회',
+ uses:['인수심사','보험료 산정','보험사기 탐지','전사 거버넌스'],status:'draft',tier:'T1',
+ what:'적법하게 수집한 개인정보를 수집 목적 밖인 AI 개발·성능 개선에 쓸 수 있도록 한 특례다. 개인정보보호위원회의 사전 심의·의결을 거쳐야 하고, 가명·익명 처리로는 개발이 어렵다는 점을 소명해야 한다. 보험사가 보유한 계약·사고 데이터로 모델을 학습시킬 때의 근거가 된다.',
+ change:'법률 제21910호로 2026-09-08 공포, 2027-03-09 시행. 시행일 전까지는 이 특례를 학습 데이터 처리의 근거로 쓸 수 없다.',
+ next:'시행령·고시 입법예고 · 2027-03-09 시행',url:'https://www.law.go.kr/법령/개인정보보호법'},
+{id:'kr-credit',jur:'🇰🇷 정보보호',kind:'법률',bind:'법적 의무',name:'신용정보법 제36조의2 (자동화평가 대응권)',org:'금융위원회',
+ uses:['인수심사','보험료 산정'],status:'keep',tier:'T1',
+ what:'금융회사가 컴퓨터로만 개인을 평가할 때 그 결과·주요 기준·기초 정보를 설명하라고 요구하고, 정정·재산출을 요청할 수 있다.',
+ change:'2020-08-05 시행.',next:'',
+ url:'https://www.law.go.kr/법령/신용정보의이용및보호에관한법률'},
+{id:'eu-aiact',jur:'🇪🇺 EU',kind:'법률',bind:'법적 의무',name:'EU AI Act 부속서 III 5(c): 생명·건강보험 위험평가·가격 산정',org:'EU',
+ uses:['인수심사','보험료 산정','전사 거버넌스'],status:'new',tier:'T2',
+ what:'생명·건강보험에서 개인의 위험을 평가하고 가격을 매기는 AI는 고위험 AI다. 위험관리체계·데이터 품질·기록·사람의 감독·적합성 평가 의무가 붙는다.',
+ change:'디지털 옴니버스(Regulation (EU) 2026/1744)로 부속서 III 고위험 의무 적용일이 2026-08-02에서 2027-12-02로 미뤄졌다.',
+ next:'2027-12-02 고위험 의무 적용',url:'https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/'},
+{id:'eu-eiopa',jur:'🇪🇺 EU',kind:'감독 의견',bind:'감독 기대',name:'EIOPA AI 거버넌스·위험관리 의견서',org:'EIOPA(유럽보험연금감독청)',
+ uses:['보험금 지급','보험사기 탐지','상담·판매','전사 거버넌스'],status:'keep',tier:'T1',
+ what:'AI Act의 고위험·금지 대상이 아닌 보험 AI에도 기존 보험 규정(Solvency II·IDD)이 어떻게 적용되는지 정리했다. 데이터 거버넌스·공정성·설명가능성·사람의 감독이 핵심이다.',
+ change:'2025-08-06 발표. 새 의무를 만들지 않고 기존 의무를 해석한 문서다.',
+ next:'특정 AI 활용 사례별 후속 분석 예고',
+ url:'https://www.eiopa.europa.eu/eiopa-publishes-opinion-ai-governance-and-risk-management-2025-08-06_en'},
+{id:'us-naic',jur:'🇺🇸 미국',kind:'모델 공고',bind:'감독 기대',name:'NAIC 보험사 AI 활용 모델 공고(Model Bulletin)',org:'NAIC(미국보험감독관협회)',
+ uses:['인수심사','보험료 산정','보험금 지급','보험사기 탐지','상담·판매','전사 거버넌스'],status:'keep',tier:'T2',
+ what:'보험사에 문서화된 AI 프로그램(거버넌스·위험관리·내부통제·외부 업체 관리)을 갖추라고 요구한다. 각 주가 채택해야 효력이 생긴다.',
+ change:'2023-12 채택. NAIC 채택 현황 지도(2026-08-31 기준)로는 25개 주와 워싱턴DC가 채택했다. 지도가 이미지 파일이라 2차 출처마다 집계가 달라 27개 주로 적은 곳도 있다. 원문 그대로 받은 주와 일부를 고친 주가 섞여 있고, 캘리포니아·콜로라도·뉴욕·텍사스는 자체 규정을 따로 둔다.',
+ next:'',url:'https://content.naic.org/sites/default/files/legal-adoption-map-ai-model-bulletin.pdf'},
+{id:'us-naic-tool',jur:'🇺🇸 미국',kind:'감독 도구',bind:'감독 기대',name:'NAIC AI 위험평가 보충서 (구 AI 시스템 평가 도구)',org:'NAIC 빅데이터·AI 실무그룹',
+ uses:['인수심사','보험금 지급','전사 거버넌스'],status:'new',tier:'T2',
+ what:'감독관이 보험사의 AI 활용 범위와 위험을 점검할 때 받는 자료 제출 양식이다. 12개 주가 2026-03부터 시범 운영했고, 이름이 AI Systems Evaluation Tool에서 AI Risk Evaluation Supplement로 바뀌었다.',
+ change:'2026 가을 총회(11-14~17, 댈러스)에서 채택이 예상된다. 빅데이터·AI 실무그룹 회의가 2026-11-16로 잡혀 있다.',
+ next:'2026-11-16 실무그룹 회의 · 채택 여부와 최종 버전',url:'https://content.naic.org/committees/h/big-data-artificial-intelligence-wg'},
+{id:'us-nydfs',jur:'🇺🇸 미국',kind:'감독 서한',bind:'감독 기대',name:'뉴욕주 금융감독청(NYDFS) 회람 7호',org:'NYDFS',
+ uses:['인수심사','보험료 산정'],status:'keep',tier:'T1',
+ what:'인수·가격 산정에 AI와 외부 소비자 데이터를 쓸 때 차별이 없음을 보험사가 입증하도록 요구한다. 보호 대상 집단과의 상관(대리변수) 점검이 핵심이다.',
+ change:'2024-07-11 발표.',next:'',
+ url:'https://www.dfs.ny.gov/industry-guidance/circular-letters/cl2024-07'},
+{id:'us-colorado',jur:'🇺🇸 미국',kind:'주법·규정',bind:'법적 의무',name:'콜로라도 보험 AI 규정 (SB21-169 · 규정 10-1-1) 과 SB26-189',org:'콜로라도주 보험국',
+ uses:['인수심사','보험료 산정','전사 거버넌스'],status:'new',tier:'T2',
+ what:'생명보험사가 외부 데이터·AI 모델을 쓸 때 거버넌스와 차별 점검을 의무화했다. 일반 AI법 SB24-205는 2026-05 SB26-189로 폐지·재입법됐다.',
+ change:'SB26-189는 보험 전용인 SB21-169를 고치지 않는다. SB21-169를 지킨 보험사는 보험업을 수행하는 범위에서 SB26-189를 준수한 것으로 본다(세이프하버). 다만 채용처럼 보험업 밖에서 쓰는 자동화 의사결정은 그대로 적용된다. 보험 규정은 보험국이, SB26-189는 법무장관이 집행한다.',
+ next:'2027-01-01 SB26-189 시행',url:'https://www.crowell.com/en/insights/client-alerts/colorado-hits-reset-on-ai-regulation-sb-26-189-repeals-and-reenacts-the-colorado-ai-act'},
+{id:'int-iais',jur:'🌐 국제',kind:'국제 기준',bind:'자율 규범',name:'IAIS AI 감독 적용 문서(Application Paper)',org:'IAIS(국제보험감독자협의회)',
+ uses:['인수심사','보험료 산정','보험금 지급','전사 거버넌스'],status:'keep',tier:'T1',
+ what:'보험핵심원칙(ICP)을 AI에 적용하는 방법을 정리했다. 위험 기반·비례 감독, 거버넌스, 견고성, 설명가능성, 공정성과 구제 절차를 다룬다.',
+ change:'2025-07 최종본 발표. ICP 자체는 바꾸지 않았다.',next:'',
+ url:'https://www.iais.org/2025/07/the-iais-publishes-application-paper-on-the-supervision-of-artificial-intelligence/'},
+];
+const EVENTS=[
+ {d:'2026-11-16',t:'NAIC 빅데이터·AI 실무그룹 (가을 총회)',s:'AI 위험평가 보충서 채택 예상',id:'us-naic-tool'},
+ {d:'2026-11',t:'생성형 AI 망분리 예외 규정변경예고',s:'금융위 · 공고문 미확인(보도 기준)',id:'kr-network'},
+ {d:'2027-01-01',t:'콜로라도 SB26-189 시행',s:'자동화 의사결정 규율',id:'us-colorado'},
+ {d:'2027-01',t:'AI 기본법 계도기간 종료(예상)',s:'정부 발표 최소 1년 유예',id:'kr-aiact'},
+ {d:'2027-03-09',t:'개인정보 AI 개발 특례 시행',s:'법률 제21910호 · 시행일 확정',id:'kr-pipa-ai'},
+ {d:'2027-12-02',t:'EU AI Act 고위험 의무 적용',s:'생명·건강보험 위험평가·가격 산정',id:'eu-aiact'},
+];
+const SHORT={'kr-aiact':'AI 기본법','kr-highimpact':'고영향 AI 판단 기준','kr-transparency':'투명성 안내 지침',
+ 'kr-fsc-guide':'금융분야 AI 가이드라인','kr-fss-rmf':'금감원 AI RMF','kr-fss-review':'보험사 AI 실태 점검','kr-network':'망분리 개선',
+ 'kr-pipa':'개인정보법 자동화 결정','kr-pipa-ai':'개인정보 AI 특례','kr-credit':'신용정보법 자동화평가',
+ 'eu-aiact':'AI Act 고위험(생명·건강)','eu-eiopa':'EIOPA 의견서','us-naic':'NAIC 모델 공고','us-naic-tool':'NAIC 위험평가 보충서',
+ 'us-nydfs':'NYDFS 회람 7호','us-colorado':'콜로라도 규정','int-iais':'IAIS 적용 문서'};
+const ST={new:'갱신/신규',draft:'초안/예정',keep:'유지'};
+const $=s=>document.querySelector(s);
+const esc=t=>String(t||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const F={jur:'',use:'',st:'',q:''};
+$('#asof').textContent=ASOF;$('#cnt').textContent=ITEMS.length;
+
+// 다가오는 일정
+const days=d=>(new Date(d.length===7?d+'-01':d)-new Date(ASOF))/864e5;
+$('#tl').innerHTML=EVENTS.map(e=>`<div class="${days(e.d)<=60?'soon':''}"><b>${e.d}</b>${esc(e.t)}<br><span>${esc(e.s)}</span></div>`).join('');
+$('#tl').querySelectorAll('div').forEach((el,i)=>{el.style.cursor='pointer';el.onclick=()=>jump(EVENTS[i].id);});
+
+// 업무 × 관할 매트릭스
+$('#mx').innerHTML='<thead><tr><th>업무</th>'+JURS.map(j=>'<th>'+j+'</th>').join('')+'</tr></thead><tbody>'+
+  USES.map(u=>'<tr><th>'+u+'</th>'+JURS.map(j=>'<td>'+ITEMS.filter(i=>i.jur===j&&i.uses.includes(u))
+    .map(i=>`<a data-id="${i.id}">${esc(SHORT[i.id])}</a>`).join('')+'</td>').join('')+'</tr>').join('')+'</tbody>';
+$('#mx').querySelectorAll('a').forEach(a=>a.onclick=()=>jump(a.dataset.id));
+
+function jump(id){F.jur=F.use=F.st=F.q='';$('#q').value='';draw();
+  const el=document.getElementById(id);if(!el)return;el.scrollIntoView({behavior:'smooth'});
+  el.classList.add('hl');setTimeout(()=>el.classList.remove('hl'),1800);}
+
+function chips(el,key,opts,label){
+  el.innerHTML='';[['','전체 '+label],...opts.map(o=>[o,o])].forEach(([v,l])=>{
+    const b=document.createElement('button');b.textContent=l;b.className=F[key]===v?'on':'';
+    b.onclick=()=>{F[key]=v;draw();};el.append(b);});
+}
+function hit(i){
+  if(F.jur&&i.jur!==F.jur)return false;
+  if(F.use&&!i.uses.includes(F.use))return false;
+  if(F.st&&i.status!==F.st)return false;
+  if(F.q){const s=[i.name,i.org,i.what,i.change,i.kind].join(' ').toLowerCase();
+    if(!F.q.toLowerCase().split(/\s+/).every(w=>s.includes(w)))return false;}
+  return true;
+}
+function draw(){
+  chips($('#fJur'),'jur',JURS,'관할');chips($('#fUse'),'use',USES,'업무');
+  chips($('#fSt'),'st',Object.keys(ST),'상태');[...$('#fSt').children].slice(1).forEach((b,k)=>b.textContent=Object.values(ST)[k]);
+  const L=$('#list');L.innerHTML='';
+  const list=ITEMS.filter(hit);
+  if(!list.length){L.innerHTML='<p style="color:var(--mut)">조건에 맞는 항목이 없습니다.</p>';return;}
+  JURS.forEach(j=>{
+    const g=list.filter(i=>i.jur===j);if(!g.length)return;
+    L.insertAdjacentHTML('beforeend',`<div class="grp">${j} (${g.length})</div><div class="cards">${g.map(card).join('')}</div>`);
+  });
+}
+function card(i){
+  return `<div class="c" id="${i.id}"><div class="top"><span class="st ${i.status}">${ST[i.status]}</span><span class="kind">${esc(i.kind)}</span>
+<span class="bind ${i.bind==='법적 의무'?'law':''}">${esc(i.bind)}</span></div>
+<h3>${esc(i.name)}</h3><div class="org">${esc(i.org)}</div>
+<div class="ins">${i.uses.map(u=>'<span>'+u+'</span>').join('')}</div>
+<p>${esc(i.what)}</p><div class="chg"><b>최근</b> ${esc(i.change)}</div>
+${i.next?'<div class="nx">▶ 다음: '+esc(i.next)+'</div>':''}
+<div class="src"><span class="tier ${i.tier}">${i.tier}</span><a href="${esc(i.url)}" target="_blank" rel="noopener">출처 ↗</a></div></div>`;
+}
+$('#q').oninput=e=>{F.q=e.target.value.trim();draw();};
+draw();
+</script></body></html>

@@ -99,7 +99,7 @@ footer{color:var(--mut);font-size:12px;padding:20px 0 50px;border-top:1px solid 
 <footer>이 보드는 공개된 법령·감독기관 발표·로펌 해설을 바탕으로 정리했으며 법률 자문이 아닙니다. 각 항목의 출처 링크에서 원문을 확인하세요.<br>매주 갱신하며, 바뀐 항목은 기준일과 함께 <b>갱신/신규</b>로 표시합니다. · 인사이트솔루션</footer>
 </div>
 <script>
-const ASOF='2026-11-15';
+const ASOF='2026-11-28';
 const USES=['인수심사','보험료 산정','보험금 지급','보험사기 탐지','상담·판매','전사 거버넌스'];
 const JURS=['🇰🇷 AI 기본법','🇰🇷 금융당국','🇰🇷 정보보호','🇪🇺 EU','🇺🇸 미국','🌐 국제'];
 // status: new | draft | keep · bind: 법적 의무 | 감독 기대 | 자율 규범
@@ -140,10 +140,10 @@ const ITEMS=[
 {id:'kr-network',jur:'🇰🇷 금융당국',kind:'규정 개정',bind:'법적 의무',name:'망분리 규제 개선 (전자금융감독규정·시행세칙)',org:'금융위원회 · 금융감독원',
  uses:['전사 거버넌스','상담·판매'],status:'new',tier:'T1',
  what:'내부 업무망에서 클라우드 SaaS를 보안 조건 아래 쓸 수 있게 망분리 예외를 허용했다. 생성형 AI 서비스도 예외에 넣는 방안을 추진 중이다.',
- change:'SaaS 예외 2026-04-20 시행. 비조치의견서로 풀어 둔 생성형 AI·보안 목적 AI 예외를 전자금융감독규정 조문으로 상시화하는 개정안이 2026-11 중 규정변경예고될 예정이라고 보도됐다(공고문은 아직 확인되지 않았다). 금융위는 망분리 전면 해제를 논의할 TF를 2026-11 가동했다.',
- next:'규정변경예고 공고 확인 · AI 기반 신 보안체계(2027년 1분기 목표)',
- url:'https://www.fsc.go.kr/no010101/86745'},
-{id:'kr-pipa',jur:'🇰🇷 정보보호',kind:'법률',bind:'법적 의무',name:'개인정보보호법 제37조의2 (자동화된 결정에 대한 권리)',org:'개인정보보호위원회',
+ change:'SaaS 예외 2026-04-20 시행. 생성형 AI 예외를 조문으로 상시화하는 개정이 2026-11 중 예고될 것이라는 보도가 있었으나, 2026-11-28 기준 금융위 규정변경예고 목록에 해당 공고는 없다. 지금 예고 중인 전자금융감독규정 개정(공고 제2026-756호, 2026-11-18)은 IT 자산 식별·관리와 취약점 분석·평가 주기 단축(대형사 연 2회) 건으로 망분리와는 별개다. 금융위는 망분리 전면 해제를 논의할 TF를 2026-11 가동했다.',
+ next:'전자금융감독규정 개정 의견 마감 2026-11-30 · 망분리 예외 상시화 공고는 아직 없음',
+ url:'https://fsc.go.kr/po040301/view?noticeId=4189'},
+ {id:'kr-pipa',jur:'🇰🇷 정보보호',kind:'법률',bind:'법적 의무',name:'개인정보보호법 제37조의2 (자동화된 결정에 대한 권리)',org:'개인정보보호위원회',
  uses:['인수심사','보험금 지급','보험사기 탐지'],status:'keep',tier:'T1',
  what:'사람 개입 없이 AI로만 내린 결정이 권리·의무에 중대한 영향을 주면 정보주체가 거부하거나 설명을 요구할 수 있다. 자동 인수거절·자동 지급거절이 대표 사례다.',
  change:'2024-03-15 시행.',next:'',
@@ -177,9 +177,14 @@ const ITEMS=[
 {id:'us-naic-tool',jur:'🇺🇸 미국',kind:'감독 도구',bind:'감독 기대',name:'NAIC AI 위험평가 보충서 (구 AI 시스템 평가 도구)',org:'NAIC 빅데이터·AI 실무그룹',
  uses:['인수심사','보험금 지급','전사 거버넌스'],status:'new',tier:'T2',
  what:'감독관이 보험사의 AI 활용 범위와 위험을 점검할 때 받는 자료 제출 양식이다. 12개 주가 2026-03부터 시범 운영했고, 이름이 AI Systems Evaluation Tool에서 AI Risk Evaluation Supplement로 바뀌었다.',
- change:'2026 가을 총회(11-14~17, 댈러스)에서 채택이 예상된다. 빅데이터·AI 실무그룹 회의가 2026-11-16로 잡혀 있다.',
- next:'2026-11-16 실무그룹 회의 · 채택 여부와 최종 버전',url:'https://content.naic.org/committees/h/big-data-artificial-intelligence-wg'},
-{id:'us-nydfs',jur:'🇺🇸 미국',kind:'감독 서한',bind:'감독 기대',name:'뉴욕주 금융감독청(NYDFS) 회람 7호',org:'NYDFS',
+ change:'2026 가을 총회(11-14~17)에서 버전 7.0이 빅데이터·AI 실무그룹과 혁신·사이버보안·기술 위원회에서 채택됐다. 12개 주 시범 운영은 총회 전에 끝났다. 7.0은 이 보충서가 기존 검사 핸드북을 보완하는 도구임을 명시하고, 감독관이 질의 항목과 대상 모델 유형을 제한할 수 있게 했으며(일반화선형모형 제외 등), 중요성 기준을 감독관이 정하거나 회사 산정치를 쓸 수 있게 했다. 에이전틱 AI에 대한 사람의 감독도 다룬다. 보험사에 직접 제출 의무를 지우는 문서는 아니고 감독관의 검사·질의 도구다.',
+ next:'시장행위·재무검사 핸드북 편입 논의 · 추가 개정 예상',url:'https://www.sidley.com/en/insights/newsupdates/2026/11/regulatory-update-naic-fall-2026-national-meeting'},
+ {id:'us-naic-tpdm',jur:'🇺🇸 미국',kind:'감독 프레임워크',bind:'감독 기대',name:'NAIC 제3자 데이터·모델 규율 프레임워크 (TPDM)',org:'NAIC 제3자 데이터·모델 실무그룹',
+ uses:['인수심사','보험료 산정'],status:'draft',tier:'T2',
+ what:'보험사가 외부에서 사 오는 데이터와 모델을 감독당국이 벤더에게 직접 확인할 수 있게 하는 틀이다. 벤더 등록부를 두되 영업비밀을 보호하는 비밀유지 경로를 함께 둔다. 1단계 적용 범위는 손해보험의 가격 산정과 인수심사에 쓰이는 제3자 데이터·모델이다.',
+ change:'2026 가을 총회에서 개정안이 45일 의견수렴에 부쳐졌다. 1차안에 있던 벤더의 주별 보험법 준수 연간 서면 확인 요구는 빠졌고, 주가 벤더 도구 사용을 막기 전에 통지하고 시정 기회를 주는 절차가 들어갔다. 보험사가 직접 지는 의무는 아니지만 쓰던 외부 모델의 공급 조건이 바뀔 수 있다.',
+ next:'의견 마감 2026-12-30(출처에 따라 12-31로도 보도됨) · 2027 봄 총회 채택 목표',url:'https://www.mondaq.com/unitedstates/insurance-laws-and-products/1718464/naic-fall-meeting-update-third-party-data-and-models-h-working-group-exposes-risk-based-regulatory-framework-for-third-party-data-and-model-vendors'},
+  {id:'us-nydfs',jur:'🇺🇸 미국',kind:'감독 서한',bind:'감독 기대',name:'뉴욕주 금융감독청(NYDFS) 회람 7호',org:'NYDFS',
  uses:['인수심사','보험료 산정'],status:'keep',tier:'T1',
  what:'인수·가격 산정에 AI와 외부 소비자 데이터를 쓸 때 차별이 없음을 보험사가 입증하도록 요구한다. 보호 대상 집단과의 상관(대리변수) 점검이 핵심이다.',
  change:'2024-07-11 발표.',next:'',
@@ -196,17 +201,18 @@ const ITEMS=[
  url:'https://www.iais.org/2025/07/the-iais-publishes-application-paper-on-the-supervision-of-artificial-intelligence/'},
 ];
 const EVENTS=[
- {d:'2026-11-16',t:'NAIC 빅데이터·AI 실무그룹 (가을 총회)',s:'AI 위험평가 보충서 채택 예상',id:'us-naic-tool'},
- {d:'2026-11',t:'생성형 AI 망분리 예외 규정변경예고',s:'금융위 · 공고문 미확인(보도 기준)',id:'kr-network'},
+ {d:'2026-11-30',t:'전자금융감독규정 개정 의견제출 마감',s:'금융위 공고 제2026-756호 · IT자산·취약점 평가',id:'kr-network'},
+ {d:'2026-12-30',t:'NAIC 제3자 데이터·모델 프레임워크 의견 마감',s:'출처에 따라 12-31로도 보도됨 · 공고 확인 필요',id:'us-naic-tpdm'},
  {d:'2027-01-01',t:'콜로라도 SB26-189 시행',s:'자동화 의사결정 규율',id:'us-colorado'},
- {d:'2027-01',t:'AI 기본법 계도기간 종료(예상)',s:'정부 발표 최소 1년 유예',id:'kr-aiact'},
+ {d:'2027-01',t:'AI 기본법 계도기간 종료(빨라야)',s:'최소 1년 유예 발표 · 종료일 미공표',id:'kr-aiact'},
+ {d:'2027-03',t:'NAIC 봄 총회 · TPDM 채택 목표',s:'제3자 데이터·모델 벤더 규율',id:'us-naic-tpdm'},
  {d:'2027-03-09',t:'개인정보 AI 개발 특례 시행',s:'법률 제21910호 · 시행일 확정',id:'kr-pipa-ai'},
  {d:'2027-12-02',t:'EU AI Act 고위험 의무 적용',s:'생명·건강보험 위험평가·가격 산정',id:'eu-aiact'},
 ];
 const SHORT={'kr-aiact':'AI 기본법','kr-highimpact':'고영향 AI 판단 기준','kr-transparency':'투명성 안내 지침',
  'kr-fsc-guide':'금융분야 AI 가이드라인','kr-fss-rmf':'금감원 AI RMF','kr-fss-review':'보험사 AI 실태 점검','kr-network':'망분리 개선',
  'kr-pipa':'개인정보법 자동화 결정','kr-pipa-ai':'개인정보 AI 특례','kr-credit':'신용정보법 자동화평가',
- 'eu-aiact':'AI Act 고위험(생명·건강)','eu-eiopa':'EIOPA 의견서','us-naic':'NAIC 모델 공고','us-naic-tool':'NAIC 위험평가 보충서',
+ 'eu-aiact':'AI Act 고위험(생명·건강)','eu-eiopa':'EIOPA 의견서','us-naic':'NAIC 모델 공고','us-naic-tool':'NAIC 위험평가 보충서','us-naic-tpdm':'NAIC 제3자 데이터·모델',
  'us-nydfs':'NYDFS 회람 7호','us-colorado':'콜로라도 규정','int-iais':'IAIS 적용 문서'};
 const ST={new:'갱신/신규',draft:'초안/예정',keep:'유지'};
 const $=s=>document.querySelector(s);

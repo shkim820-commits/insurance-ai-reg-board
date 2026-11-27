@@ -19,6 +19,12 @@ header h1{margin:4px 0 6px;font-size:28px;color:var(--ink)}
 header p{margin:0;color:var(--mut);font-size:14px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 0 4px;font-size:12.5px;color:var(--mut)}
 .legend b{color:var(--txt)}
+.nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:14px 0 0;font-size:12.5px}
+.nav b{color:var(--mut);font-weight:normal;margin-right:4px}
+.nav a,.nav .here{padding:3px 10px;border-radius:3px;text-decoration:none;white-space:nowrap}
+.nav .here{background:var(--ink);color:var(--card);font-weight:bold}
+.nav a{background:var(--chip);color:var(--txt)}
+.nav a:hover{background:var(--acc);color:#fff}
 .st{display:inline-block;font-size:11.5px;font-weight:bold;padding:1px 7px;border-radius:3px;white-space:nowrap}
 .st.new{background:var(--newBg);color:var(--new)}.st.draft{background:var(--draftBg);color:var(--draft)}.st.keep{background:var(--keepBg);color:var(--keep)}
 .tier{display:inline-block;font-size:11px;font-weight:bold;border:1px solid var(--line);padding:0 5px;border-radius:3px;color:var(--mut)}
@@ -67,7 +73,8 @@ h2 small{font-size:12.5px;color:var(--mut);font-weight:normal}
 .c .src{font-size:12px;margin-top:8px;display:flex;gap:8px;align-items:center}
 .c .src a{color:var(--acc);text-decoration:none;font-weight:bold}
 footer{color:var(--mut);font-size:12px;padding:20px 0 50px;border-top:1px solid var(--line);margin-top:30px}
-@media (max-width:640px){.wrap{padding:0 16px}.cards{grid-template-columns:1fr}header h1{font-size:23px}}
+@media (max-width:640px){.wrap{padding:0 16px}.cards{grid-template-columns:1fr}header h1{font-size:23px}
+  h2{flex-direction:column;align-items:flex-start;gap:2px}}
 </style></head><body>
 <div class="wrap">
 <header>
@@ -75,6 +82,10 @@ footer{color:var(--mut);font-size:12px;padding:20px 0 50px;border-top:1px solid 
   <h1>보험 AI 규제 보드</h1>
   <p>보험사가 AI를 인수심사·보험료 산정·보험금 지급·보험사기 탐지·상담에 쓸 때 챙겨야 할 국내외 규제를 한곳에 모았습니다.
      기준일 <b id="asof"></b> · 항목 <b id="cnt"></b>개</p>
+  <nav class="nav"><b>보드</b>
+    <span class="here">보험 AI 규제</span>
+    <a href="https://shkim820-commits.github.io/pipc-guidebook-board/" target="_blank" rel="noopener">개인정보위 안내서 ↗</a>
+  </nav>
   <div class="legend">
     <span><span class="st new">갱신/신규</span> 최근 60일 안에 공표·개정·시행</span>
     <span><span class="st draft">초안/예정</span> 확정·시행 전 단계</span>
